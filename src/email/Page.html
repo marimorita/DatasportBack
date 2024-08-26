@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            max-width: 150px;
+        }
+
+        .content h1 {
+            font-size: 30px;
+            color: #333333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .security {
+            margin-bottom: 20px;
+        }
+
+        .text {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .code-container {
+            background: linear-gradient(to right, #FE7A36, #FF9F2E);
+            width: 40%;
+            height: 70px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 70px; /* Vertically centers the text */
+            color: white;
+        }
+
+        .code {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            font-size: 18px;
+            color: #555555;
+            margin: 5px 0;
+        }
+
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://i.postimg.cc/pLz72WJd/logo.png" alt="Company Logo">
+        </div>
+        <div class="content">
+            <h1>Hola, Te agradecemos por confiar en nuestro servicio!</h1>
+            <div class="security">
+                <p class="text">
+                    Acuerdate que nuestro producto ofrece la sistematizacion de la información de tus clientes, empleados e inventarios. Facilitamos el control de mensualidades y asistencias mediante una solución tecnológica eficiente, mejorando la administración y operatividad de tu establecimiento. <br><br>
+                    Este es tu codigo de seguridad:
+                </p>
+                <div class="code-container">
+                    <p class="code">{{verificationCode}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Sergio Chica,</p>
+            <p class="signature">DataSport</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# Package npm install
+@types/bcryptjs@2.4.6
+@types/cors@2.8.17
+@types/express@4.17.21
+@types/jsonwebtoken@9.0.6
+@types/node@20.12.12
+@types/nodemailer@6.4.15
+@vonage/server-sdk@3.15.1
+axios@1.7.2
+bcryptjs@2.4.3
+cors@2.8.5
+dotenv@16.4.5
+env-var@7.4.2
+express@4.19.2
+form-data@4.0.0
+jsonwebtoken@9.0.2
+mailersend@2.2.0
+mailgun.js@10.2.3
+messagebird@4.0.1
+mongoose@8.4.4
+nodemailer@6.9.14
+nodemon@3.1.0
+rimraf@5.0.7
+ts-node-dev@2.0.0
+typescript@5.4.5
+wouter@3.3.1
