@@ -15,7 +15,7 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
     }
     
     async register(registerAssetsDto: RegisterAssetsDto): Promise<AssetsEntity> {
-        const { id, name, description, stock, price, img, condition, lastMaintenance, nextMaintenance} = registerAssetsDto
+        const { id, name, description, img, stock} = registerAssetsDto
         
         try {
 
@@ -26,12 +26,8 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
                 id: id,
                 name: name,
                 description: description,
-                stock: stock,
-                price: price,
                 img: img,
-                condition: condition,
-                lastMaintenance: lastMaintenance,
-                nextMaintenance: nextMaintenance,
+                stock: stock,
             });
            
             await this.assetsRepository.save(newAssets);

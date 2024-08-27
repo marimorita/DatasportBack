@@ -5,6 +5,7 @@ export * from './dto/auth/administrator/register-administrator.dto'
 export * from './dto/auth/products/register-productsdto'
 export * from './dto/auth/inventory/register-inventorydto'
 export * from './dto/auth/assets/register-assetsdto'
+export * from './dto/auth/individualasset/register-individualassetdto'
 
 export * from './datasources/administrator/auth.administratordatasource'
 export * from './datasources/clients/auth.clientsdatasource'
@@ -13,6 +14,7 @@ export * from './datasources/establishment/auth.establishmentdatasource'
 export * from './datasources/products/auth.productsdatasource'
 export * from './datasources/invetory/auth.invetorydatasource'
 export * from './datasources/assets/auth.assetsdatasource'
+export * from './datasources/individualasset/auth.individualassetdatasource'
 
 export * from './repositories/clients/auth.clientsrepository'
 export * from './repositories/employees/auth.employeesrepository'
@@ -21,5 +23,6 @@ export * from './repositories/administrator/auth.administratorrepository'
 export * from './repositories/products/auth.productsrepository'
 export * from './repositories/inventory/auth.inventoryrepository'
 export * from './repositories/assets/auth.assetspository'
+export * from './repositories/individualasset/auth.individualassetpository'
 
 export * from './errors/custom.error';

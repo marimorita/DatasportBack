@@ -8,3 +8,4 @@ export * from "./entities/auth/administrator/administrator.entity";
 export * from "./entities/auth/products/products.entity";
 export * from "./entities/auth/inventory/inventory.entity";
 export * from "./entities/auth/assets/assets.entity";
+export * from "./entities/auth/individualasset/individualasset.entity";

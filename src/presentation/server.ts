@@ -27,6 +27,12 @@ export class Server {
 
         this.app.use(this.routes);
 
+        this.app.get("/", (req, res) => {
+            res.send({
+                message: "Server started",
+            })
+        });
+
         this.app.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}`);
         })
