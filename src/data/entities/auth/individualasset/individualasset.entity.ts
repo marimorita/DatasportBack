@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn , Column } from 'typeorm';
 @Entity('BienIndividual')
 export class IndividualAssetsEntity {
 
-  @PrimaryGeneratedColumn({ name: 'idBienes'})
+  @PrimaryGeneratedColumn({ name: 'Id_BienIndividual'})
   id?: number;
 
   @Column({ name: 'Nombre'})
@@ -13,21 +13,25 @@ export class IndividualAssetsEntity {
   @Column({ name: 'Descripcion' })
   description?: string;
 
-  @Column({ name: 'Cantidad' })
-  stock?: number;
+  @Column({ type: 'date', name: 'fecha_adquisición'})
+  adquisitionDate?: Date;
 
-  @Column({ name: 'Precio'})
-  price?: number;
-  
-  @Column({ name: 'Imagen' })
-  img?: string;
+  @Column({ name: 'Estado' })
+  state?: string;
 
   @Column({ name: 'Condicion' })
   condition?: string;
 
-  @Column({ type: 'date', name: 'ultimo_mantenimiento'})
+  @Column({ name: 'Imagen' })
+  img?: string;
+
+  @Column({ type: 'date', name: 'Ultimo_mantenimiento'})
   lastMaintenance?: Date;
 
-  @Column({ type: 'date', name: 'siguiente_mantenimiento'})
+  @Column({ type: 'date', name: 'Siguiente_mantenimiento'})
   nextMaintenance?: Date;
+
+  @Column({ name: 'Id_Bienes' })
+  idAssets?: number;
+  
 }
