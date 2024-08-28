@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../data/mysql/ormconfig";
 import { AuthIndividualAssetsDataSource, CustomError, RegisterIndividualAssetsDto} from "../../../domain";
-import { AssetsMapper } from "../../mappers/assets/assets.mappers";
+import { IndividualAssetsMapper } from "../../mappers/individualasset/individualasset.mappers";
 import { IndividualAssetsEntity } from "../../../data";
 // import { envs } from '../../../config';
 // import jwt from 'jsonwebtoken';
@@ -33,7 +33,7 @@ export class AuthIndividualAssetsDataSourceImpl implements AuthIndividualAssetsD
            
             await this.individualAssetsRepository.save(newAssets);
 
-            return AssetsMapper.toDomain(newAssets);
+            return IndividualAssetsMapper.toDomain(newAssets);
             
         } catch (error) {
             // console.error("Error registering client:", error);

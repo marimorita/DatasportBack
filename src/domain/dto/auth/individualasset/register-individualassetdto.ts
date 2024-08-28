@@ -23,6 +23,9 @@ export class RegisterIndividualAssetsDto {
 
             if ( !description ) return [ 'Falta description' ];
 
+            if ( !lastMaintenance ) return [ 'Falta Fecha de adquisicion' ];
+            if ( !Validators.date.test( lastMaintenance ) ) return [ 'Fecha de adquisicion no valido'];
+
             if ( !state ) return [ 'Falta Estado' ];
             if ( !Validators.text.test( state ) ) return [ 'Estado no valido'];
 

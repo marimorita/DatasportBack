@@ -5,6 +5,7 @@ import { AuthEstablishmentRoutes } from "./auth/establishment/establishment.rout
 import { AuthAdministratorRoutes } from "./auth/administrator/administrator.routes";
 import { AuthProductsRoutes } from "./auth/products/products.routes";
 import { AuthAssetsRoutes } from "./auth/assets/assets.routes";
+import { AuthIndividualAssetsRoutes } from "./auth/individualasset/individualasset.routes";
 import { VerifyCodeRoutes } from "./auth/verifycode/verifycode.routes";
 import { VerifyTokenAndSendCodeCodeRoutes } from "./auth/verifycode/verifyTokenAndSendCode.routes";
 
@@ -19,6 +20,7 @@ export class AppRoutes {
         router.use('/ds/auth/administrator', AuthAdministratorRoutes.routes)
         router.use('/ds/auth/products', AuthProductsRoutes.routes)
         router.use('/ds/auth/assets', AuthAssetsRoutes.routes)
+        router.use('/ds/auth/individualassets', AuthIndividualAssetsRoutes.routes)
         router.use('/ds/auth/twoverific', VerifyCodeRoutes.routes)
         router.use('/ds/auth/vr', VerifyTokenAndSendCodeCodeRoutes.routes)
         router.use('/ds/auth/vr', VerifyTokenAndSendCodeCodeRoutes.routes)
