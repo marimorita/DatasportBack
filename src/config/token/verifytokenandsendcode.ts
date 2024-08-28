@@ -23,7 +23,7 @@ const getHtmlTemplate = (code: string, templateName: string = 'Page.html') => {
     const templatePath = path.join(__dirname, `../../email/${templateName}`);
     const source = fs.readFileSync(templatePath, 'utf-8');
     const template = Handlebars.compile(source);
-    return template({ verificationCode: code );
+    return template({ verificationCode: code });
 };
 
 export const verifyTokenAndSendCode = async (req: Request, res: Response) => {
