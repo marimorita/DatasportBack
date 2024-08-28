@@ -13,7 +13,7 @@ export class Server {
     private readonly routes: Router;
     
     constructor( options: Options) {
-        const {port = 3100, routes} = options;
+        const {port = 3000, routes} = options;
         this.port = port;
         this.routes = routes;
     }
