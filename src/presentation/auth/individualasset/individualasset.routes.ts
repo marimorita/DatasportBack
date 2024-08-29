@@ -16,6 +16,8 @@ export class AuthIndividualAssetsRoutes {
 
         // router.post('/login', controller.registerProducts);
         router.post('/register'/* , authenticateToken, authorizeRoles(['admin', 'employee']) */, controller.registerIndividualAssets)
+        router.get('/individualassets/:id', controller.getAllIndividualAssetsById)
+
 
         return router;
     }

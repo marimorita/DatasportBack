@@ -13,5 +13,7 @@ export class AuthIndividualAssetsRepositoryImpl implements AuthIndividualAssetsR
     // login(email: string, password: string): Promise<{ token: string, message: string }> {
     //     return this.authEstablishmentDataSource.login(email, password);
     // }
-
+    getAllIndividualAssetsById(id: number): Promise<IndividualAssetsEntity[]> {
+        return this.authIndividualAssetsDataSource.getAllIndividualAssetsById(id);
+    }
 }

@@ -43,6 +43,14 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
         }
     }
 
+    async getAllAssets(): Promise<AssetsEntity[]> {
+        try {
+            return await this.assetsRepository.find();
+        } catch (error) {
+            throw CustomError.internalServer();
+        }
+    }
+
     async getAssetsById(id: number): Promise<AssetsEntity | null> {
         try {
             return await this.assetsRepository.findOne({ where: { id } });

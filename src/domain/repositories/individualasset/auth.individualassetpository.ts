@@ -3,4 +3,6 @@ import { RegisterIndividualAssetsDto } from "../../dto/auth/individualasset/regi
 
 export abstract class AuthIndividualAssetsRepository {
     abstract register(registerIndividualAssetsDto:RegisterIndividualAssetsDto): Promise<IndividualAssetsEntity>
+    abstract getAllIndividualAssetsById(id: number): Promise<IndividualAssetsEntity[]>;
+
 }
