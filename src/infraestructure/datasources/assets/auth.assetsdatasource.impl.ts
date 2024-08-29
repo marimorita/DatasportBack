@@ -35,7 +35,7 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
             return AssetsMapper.toDomain(newAssets);
             
         } catch (error) {
-            // console.error("Error registering client:", error);
+            console.error("Error registering client:", error);
             if (error instanceof CustomError) {
                 throw error;
             }
@@ -43,4 +43,14 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
         }
     }
 
+    async getAssetsById(id: number): Promise<AssetsEntity | null> {
+        try {
+            return await this.assetsRepository.findOne({ where: { id } });
+        } catch (error) {
+            console.error("Error fetching client by ID:", error);
+            throw CustomError.internalServer();
+        }
+    }
+
 }
+

@@ -10,6 +10,10 @@ export class AuthAssetsRepositoryImpl implements AuthAssetsRepository {
         return this.authAssetsDataSource.register(registerAssetsDto);
     }
 
+    getAssetsById(id: number): Promise<AssetsEntity | null> {
+        return this.authAssetsDataSource.getAssetsById(id);
+    }
+
     // login(email: string, password: string): Promise<{ token: string, message: string }> {
     //     return this.authEstablishmentDataSource.login(email, password);
     // }

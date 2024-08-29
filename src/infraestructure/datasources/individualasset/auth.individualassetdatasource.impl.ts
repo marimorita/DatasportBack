@@ -19,7 +19,7 @@ export class AuthIndividualAssetsDataSourceImpl implements AuthIndividualAssetsD
         
         try {
 
-            const newAssets = this.individualAssetsRepository.create({
+            const newAssets = this.individualAssetsRepository.create({  
                 name: name,
                 description: description,
                 adquisitionDate: adquisitionDate,
@@ -36,7 +36,7 @@ export class AuthIndividualAssetsDataSourceImpl implements AuthIndividualAssetsD
             return IndividualAssetsMapper.toDomain(newAssets);
             
         } catch (error) {
-            // console.error("Error registering client:", error);
+            console.error("Error registering client:", error);
             if (error instanceof CustomError) {
                 throw error;
             }

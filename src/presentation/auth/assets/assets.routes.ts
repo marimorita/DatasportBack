@@ -15,7 +15,9 @@ export class AuthAssetsRoutes {
         const controller = new AuthAssetsController(AuthRepository);
 
         // router.post('/login', controller.registerProducts);
-        router.post('/register', authenticateToken, authorizeRoles(['admin', 'employee']), controller.registerAssets)
+        router.post('/register'/* , authenticateToken, authorizeRoles(['admin', 'employee']) */, controller.registerAssets)
+        router.get('/assets/:id', controller.getAssetsById)
+
 
         return router;
     }

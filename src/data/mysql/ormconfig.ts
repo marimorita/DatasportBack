@@ -2,6 +2,8 @@ import { DataSource } from "typeorm";
 import { ClientsEntity } from "../entities/auth/clients/clients.entity";
 import { EmployeesEntity } from "../entities/auth/employees/employees.entity";
 import { AdministratorEntity } from "../entities/auth/administrator/administrator.entity";
+import { AssetsEntity } from "../entities/auth/assets/assets.entity";
+import { IndividualAssetsEntity } from "../entities/auth/individualasset/individualasset.entity";
 import { envs } from "../../config";
 
 
@@ -14,7 +16,7 @@ export const AppDataSource = new DataSource({
     database: envs.DB_DATABASE,
     synchronize: false, // Desactiva en producción
     logging: false,
-    entities: [ClientsEntity,EmployeesEntity,AdministratorEntity], // Agrega todas tus entidades aquí
+    entities: [ClientsEntity,EmployeesEntity,AdministratorEntity,AssetsEntity,IndividualAssetsEntity], // Agrega todas tus entidades aquí
     migrations: [],
     subscribers: [],
     extra: {

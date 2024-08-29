@@ -9,8 +9,8 @@ export class RegisterIndividualAssetsDto {
         public state: string,
         public condition: string,
         public img: string,
-        public lastMaintenance: string,
-        public nextMaintenance: string,
+        public lastMaintenance: Date,
+        public nextMaintenance: Date,
         public idAssets: number,
     ){}
 

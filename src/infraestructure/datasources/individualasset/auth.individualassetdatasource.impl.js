@@ -40,7 +40,7 @@ class AuthIndividualAssetsDataSourceImpl {
                 return individualasset_mappers_1.IndividualAssetsMapper.toDomain(newAssets);
             }
             catch (error) {
-                // console.error("Error registering client:", error);
+                console.error("Error registering client:", error);
                 if (error instanceof domain_1.CustomError) {
                     throw error;
                 }

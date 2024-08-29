@@ -39,10 +39,21 @@ class AuthAssetsDataSourceImpl {
                 return assets_mappers_1.AssetsMapper.toDomain(newAssets);
             }
             catch (error) {
-                // console.error("Error registering client:", error);
+                console.error("Error registering client:", error);
                 if (error instanceof domain_1.CustomError) {
                     throw error;
                 }
+                throw domain_1.CustomError.internalServer();
+            }
+        });
+    }
+    getAssetsById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.assetsRepository.findOne({ where: { id } });
+            }
+            catch (error) {
+                console.error("Error fetching client by ID:", error);
                 throw domain_1.CustomError.internalServer();
             }
         });

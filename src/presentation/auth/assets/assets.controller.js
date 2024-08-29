@@ -29,6 +29,25 @@ class AuthAssetsController {
                 res.json(assets);
             }
             catch (error) {
+                console.error("Error registering client:", error);
+                this.handleError(error, res);
+            }
+        });
+        this.getAssetsById = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            // Convertir el ID de string a number
+            const assetsId = parseInt(id, 10);
+            if (isNaN(assetsId)) {
+                return res.status(400).json({ error: 'Formato de id invalido' });
+            }
+            try {
+                const assets = yield this.authAssetsRepository.getAssetsById(assetsId);
+                if (!assets) {
+                    return res.status(404).json({ error: 'Este bien no existe' });
+                }
+                res.json(assets);
+            }
+            catch (error) {
                 this.handleError(error, res);
             }
         });
