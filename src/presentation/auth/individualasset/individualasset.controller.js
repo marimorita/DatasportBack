@@ -32,6 +32,24 @@ class AuthIndividualAssetsController {
                 this.handleError(error, res);
             }
         });
+        this.getAllIndividualAssetsById = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            // Convertir el ID de string a number
+            const individualassetId = parseInt(id, 10);
+            if (isNaN(individualassetId)) {
+                return res.status(400).json({ error: 'Formato de id invalido' });
+            }
+            try {
+                const individualasset = yield this.authIndividualAssetsRepository.getAllIndividualAssetsById(individualassetId);
+                if (!individualasset) {
+                    return res.status(404).json({ error: 'Este bien individual no existe' });
+                }
+                res.json(individualasset);
+            }
+            catch (error) {
+                this.handleError(error, res);
+            }
+        });
     }
 }
 exports.AuthIndividualAssetsController = AuthIndividualAssetsController;

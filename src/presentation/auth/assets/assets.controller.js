@@ -51,6 +51,16 @@ class AuthAssetsController {
                 this.handleError(error, res);
             }
         });
+        this.getAllAssets = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const assets = yield this.authAssetsRepository.getAllAssets();
+                res.json(assets);
+            }
+            catch (error) {
+                console.log(error);
+                this.handleError(error, res);
+            }
+        });
     }
 }
 exports.AuthAssetsController = AuthAssetsController;

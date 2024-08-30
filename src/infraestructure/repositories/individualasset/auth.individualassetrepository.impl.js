@@ -8,5 +8,11 @@ class AuthIndividualAssetsRepositoryImpl {
     register(registerIndividualAssetsDto) {
         return this.authIndividualAssetsDataSource.register(registerIndividualAssetsDto);
     }
+    // login(email: string, password: string): Promise<{ token: string, message: string }> {
+    //     return this.authEstablishmentDataSource.login(email, password);
+    // }
+    getAllIndividualAssetsById(id) {
+        return this.authIndividualAssetsDataSource.getAllIndividualAssetsById(id);
+    }
 }
 exports.AuthIndividualAssetsRepositoryImpl = AuthIndividualAssetsRepositoryImpl;

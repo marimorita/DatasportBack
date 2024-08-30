@@ -8,6 +8,9 @@ class AuthAssetsRepositoryImpl {
     register(registerAssetsDto) {
         return this.authAssetsDataSource.register(registerAssetsDto);
     }
+    getAllAssets() {
+        return this.authAssetsDataSource.getAllAssets();
+    }
     getAssetsById(id) {
         return this.authAssetsDataSource.getAssetsById(id);
     }

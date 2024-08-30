@@ -47,6 +47,16 @@ class AuthAssetsDataSourceImpl {
             }
         });
     }
+    getAllAssets() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.assetsRepository.find();
+            }
+            catch (error) {
+                throw domain_1.CustomError.internalServer();
+            }
+        });
+    }
     getAssetsById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

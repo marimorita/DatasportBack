@@ -12,6 +12,7 @@ class AuthIndividualAssetsRoutes {
         const controller = new individualasset_controller_1.AuthIndividualAssetsController(AuthRepository);
         // router.post('/login', controller.registerProducts);
         router.post('/register' /* , authenticateToken, authorizeRoles(['admin', 'employee']) */, controller.registerIndividualAssets);
+        router.get('/individualassets/:id', controller.getAllIndividualAssetsById);
         return router;
     }
 }

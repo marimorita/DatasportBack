@@ -48,5 +48,15 @@ class AuthIndividualAssetsDataSourceImpl {
             }
         });
     }
+    getAllIndividualAssetsById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.individualAssetsRepository.find({ where: { id } });
+            }
+            catch (error) {
+                throw domain_1.CustomError.internalServer();
+            }
+        });
+    }
 }
 exports.AuthIndividualAssetsDataSourceImpl = AuthIndividualAssetsDataSourceImpl;
