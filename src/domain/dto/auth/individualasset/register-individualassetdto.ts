@@ -19,7 +19,6 @@ export class RegisterIndividualAssetsDto {
             const { name, description, adquisitionDate, state, condition, img, lastMaintenance, nextMaintenance, idAssets } = object;
             
             if ( !name ) return [ 'Falta Nombre' ];
-            if ( !Validators.text.test( name ) ) return [ 'Nombre no valido'];
 
             if ( !description ) return [ 'Falta description' ];
 

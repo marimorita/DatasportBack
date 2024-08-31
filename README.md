@@ -1,35 +1,35 @@
 # Package npm install
-@azure/communication-email
-@cloudinary/react
-@cloudinary/url-gen
-@types/bcryptjs
-@types/cors
-@types/express
-@types/jsonwebtoken
-@types/node
-@types/nodemailer
-@vonage/server-sdk
-axios
-bcryptjs
-cors
-crypto
-dotenv
-env-var
-express
-form-data
-handlebars
-jsonwebtoken
-mailersend
-mailgun.js
-messagebird
-minimatch
-mongoose
-mysql2
-nodemailer
-nodemon
-rimraf
-ts-node-dev
-ts-node
-typeorm
-typescript
-wouter
+npm install @azure/communication-email
+npm install @cloudinary/react
+npm install @cloudinary/url-gen
+npm install @types/bcryptjs
+npm install @types/cors
+npm install @types/express
+npm install @types/jsonwebtoken
+npm install @types/node
+npm install @types/nodemailer
+npm install @vonage/server-sdk
+npm install axios
+npm install bcryptjs
+npm install cors
+npm install crypto
+npm install dotenv
+npm install env-var
+npm install express
+npm install form-data
+npm install handlebars
+npm install jsonwebtoken
+npm install mailersend
+npm install mailgun.js
+npm install messagebird
+npm install minimatch
+npm install mongoose
+npm install mysql2
+npm install nodemailer
+npm install nodemon
+npm install rimraf
+npm install ts-node-dev
+npm install ts-node
+npm install typeorm
+npm install typescript
+npm install wouter

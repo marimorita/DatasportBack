@@ -44,10 +44,10 @@ export class AuthIndividualAssetsDataSourceImpl implements AuthIndividualAssetsD
         }
     }
 
-    async getAllIndividualAssetsById(id: number): Promise<IndividualAssetsEntity[]> {
+    async getAllIndividualAssetsById(idAssets: number): Promise<IndividualAssetsEntity[]> {
 
         try {
-            return await this.individualAssetsRepository.find({ where: { id } });
+            return await this.individualAssetsRepository.find({ where: { idAssets } });
         } catch (error) {
             throw CustomError.internalServer();
         }

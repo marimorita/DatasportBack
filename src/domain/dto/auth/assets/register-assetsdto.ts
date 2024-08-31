@@ -15,7 +15,6 @@ export class RegisterAssetsDto {
             const { id, name, description, img, stock } = object;
             
             if ( !name ) return [ 'Falta Nombre' ];
-            if ( !Validators.text.test( name ) ) return [ 'Nombre no valido'];
 
             if ( !description ) return [ 'Falta description' ];
             

@@ -18,7 +18,6 @@ export class ClientMapper {
         // if (!img) throw CustomError.badRequest("Falta Imagen");
         if (!idCenter) throw CustomError.badRequest("Falta id de Centro");
         if (!state) throw CustomError.badRequest("Falta Estado");
-        if (!img) throw CustomError.badRequest("Falta Imagen");
 
         return {
             id,

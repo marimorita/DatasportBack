@@ -32,13 +32,14 @@ export class AuthIndividualAssetsController {
     const { id } = req.params;
 
     // Convertir el ID de string a number
-    const individualassetId = parseInt(id, 10);
+    const individualassetidAssets = parseInt(id, 10);
 
-    if (isNaN(individualassetId)) {
+    if (isNaN(individualassetidAssets)) {
       return res.status(400).json({ error: 'Formato de id invalido' });
     }
+
     try {
-      const individualasset = await this.authIndividualAssetsRepository.getAllIndividualAssetsById(individualassetId);
+      const individualasset = await this.authIndividualAssetsRepository.getAllIndividualAssetsById(individualassetidAssets);
       if (!individualasset) {
         return res.status(404).json({ error: 'Este bien individual no existe' });
       }
