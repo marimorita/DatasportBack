@@ -20,6 +20,7 @@ export class RegisterAssetsDto {
             
             if ( !stock ) return [ 'Falta Cantidad' ];
             if ( stock < 1 ) return [ 'Tiene que haber una Cantidad mayor a 1' ];
+            if ( stock > 300 ) return [ 'Tiene que haber una Cantidad mayor a 300' ];
             if ( !Validators.number.test( stock ) ) return [ 'Cantidad no valido'];
             
             return [
