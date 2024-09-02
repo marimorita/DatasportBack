@@ -8,7 +8,7 @@ export class Validators {
     }
 
     static get text() {
-        return /^[A-Za-zÑñ]+$/
+        return /^[A-Za-zÑñ\s]+$/
     }
 
     static get date() {

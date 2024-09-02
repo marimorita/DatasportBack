@@ -2,30 +2,30 @@ import { Validators } from '../../../../config'
 
 export class RegisterAssetsDto {
     private constructor(
-        
-        public id: number, 
-        public name: string, 
+
+        public id: number,
+        public name: string,
         public description: string,
         public img: string,
         public stock: number,
-    ){}
+    ) { }
 
-        static create( object: {[ key: string]: any;}): [ string?, RegisterAssetsDto?] {
+    static create(object: { [key: string]: any; }): [string?, RegisterAssetsDto?] {
 
-            const { id, name, description, img, stock } = object;
-            
-            if ( !name ) return [ 'Falta Nombre' ];
+        const { id, name, description, img, stock } = object;
 
-            if ( !description ) return [ 'Falta description' ];
-            
-            if ( !stock ) return [ 'Falta Cantidad' ];
-            if ( stock < 1 ) return [ 'Tiene que haber una Cantidad mayor a 1' ];
-            if ( stock > 300 ) return [ 'Tiene que haber una Cantidad mayor a 300' ];
-            if ( !Validators.number.test( stock ) ) return [ 'Cantidad no valido'];
-            
-            return [
-                undefined,
-                new RegisterAssetsDto(id, name, description, img, stock)
-            ];
-        }
+        if (!name) return ['Falta Nombre'];
+
+        if (!description) return ['Falta description'];
+
+        if (!stock) return ['Falta Cantidad'];
+        if (stock < 1) return ['Tiene que haber una Cantidad mayor a 1'];
+        if (stock > 300) return ['Tiene que haber una Cantidad mayor a 300'];
+        if (!Validators.number.test(stock)) return ['Cantidad no valido'];
+
+        return [
+            undefined,
+            new RegisterAssetsDto(id, name, description, img, stock)
+        ];
+    }
 }
