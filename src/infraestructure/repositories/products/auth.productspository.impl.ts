@@ -1,5 +1,5 @@
 import { ProductsEntity } from "../../../data";
-import { AuthProductsDataSource, AuthProductsRepository, RegisterProductsDto } from "../../../domain";
+import { AuthProductsDataSource, AuthProductsRepository, RegisterProductsDto, UpdateDescriptionProductsDto, UpdateImgProductsDto, UpdateNameProductsDto, UpdatePriceProductsDto, UpdateStateProductsDto, UpdateStockProductsDto } from "../../../domain";
 export class AuthProductsRepositoryImpl implements AuthProductsRepository {
 
     constructor(
@@ -10,8 +10,35 @@ export class AuthProductsRepositoryImpl implements AuthProductsRepository {
         return this.authProductsDataSource.register(registerProductsDto);
     }
 
-    // login(email: string, password: string): Promise<{ token: string, message: string }> {
-    //     return this.authEstablishmentDataSource.login(email, password);
-    // }
+    getAllProducts(): Promise<ProductsEntity[]> {
+        return this.authProductsDataSource.getAllProducts();
+    }
 
+    getProductsById(id: number): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.getProductsById(id);
+    }
+
+    UpdateNameProductsDto(updateNameProductsDto:UpdateNameProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdateNameProductsDto(updateNameProductsDto);
+    }
+
+    UpdateDescriptionProductsDto(updateDescriptionProductsDto:UpdateDescriptionProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdateDescriptionProductsDto(updateDescriptionProductsDto);
+    }
+
+    UpdateStateProductsDto(updateStateProductsDto:UpdateStateProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdateStateProductsDto(updateStateProductsDto);
+    }
+
+    UpdateStockProductsDto(updateStockProductsDto:UpdateStockProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdateStockProductsDto(updateStockProductsDto);
+    }
+
+    UpdateImgProductsDto(updateImgProductsDto:UpdateImgProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdateImgProductsDto(updateImgProductsDto);
+    }
+
+    UpdatePriceProductsDto(updatePriceProductsDto:UpdatePriceProductsDto): Promise<ProductsEntity | null> {
+        return this.authProductsDataSource.UpdatePriceProductsDto(updatePriceProductsDto);
+    }
 }

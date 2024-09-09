@@ -1,7 +1,15 @@
 import { ProductsEntity } from "../../../data";
-import { RegisterProductsDto } from "../../dto/auth/products/register-productsdto";
+import { RegisterProductsDto, UpdateNameProductsDto, UpdateDescriptionProductsDto, UpdateStateProductsDto, UpdateStockProductsDto, UpdateImgProductsDto, UpdatePriceProductsDto } from "../../dto/auth/products/register-productsdto";
 
 export abstract class AuthProductsDataSource {
     abstract register(registerProductsDto:RegisterProductsDto): Promise<ProductsEntity>
-    // abstract login(email: string, password: string): Promise<{ token: string, message: string }>;
+    abstract getAllProducts(): Promise<ProductsEntity[]>;
+
+    abstract getProductsById(id: number): Promise<ProductsEntity | null>;
+    abstract UpdateNameProductsDto(updateNameProductsDto:UpdateNameProductsDto): Promise<ProductsEntity | null>
+    abstract UpdateDescriptionProductsDto(updateDescriptionProductsDto:UpdateDescriptionProductsDto): Promise<ProductsEntity | null>
+    abstract UpdateStateProductsDto(updateStateProductsDto:UpdateStateProductsDto): Promise<ProductsEntity | null>
+    abstract UpdateStockProductsDto(updateStockProductsDto:UpdateStockProductsDto): Promise<ProductsEntity | null>
+    abstract UpdateImgProductsDto(updateImgProductsDto:UpdateImgProductsDto): Promise<ProductsEntity | null>
+    abstract UpdatePriceProductsDto(updatePriceProductsDto:UpdatePriceProductsDto): Promise<ProductsEntity | null>
 }

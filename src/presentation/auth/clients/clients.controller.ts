@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RegisterClientDto, AuthClientsRepository, CustomError } from "../../../domain";
+import { RegisterClientDto, AuthClientsRepository, CustomError, UpdateAddressClientDto, UpdateEmailClientDto, UpdateLastNameClientDto, UpdateNameClientDto, UpdatePhoneClientDto, UpdateStateClientDto } from "../../../domain";
 import { ClientsEntity } from "../../../data";
 export class AuthClientsController {
 
@@ -75,35 +75,79 @@ export class AuthClientsController {
         }
     };
 
-    updateClientStatus = async (req: Request, res: Response) => {
-        console.log('Received request to update client status');
-        const id = parseInt(req.params.id, 10); // ID del cliente desde los parámetros de la URL
-        const { state } = req.body; // Estado actualizado desde el cuerpo de la solicitud
+    UpdateNameClientDto = async (req: Request, res: Response) => {
+        const [error, updateNameClientDto] = UpdateNameClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
 
         try {
-            const client = await this.authClientsRepository.updateClientStatus(id, state);
-            if (!client) {
-                return res.status(404).json({ error: 'Cliente no encontrado' });
-            }
-            res.status(200).json(client);
+            await this.authClientsRepository.UpdateNameClientDto(updateNameClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
         } catch (error) {
             this.handleError(error, res);
         }
-    };
+    }
 
-    // loginClient = async (req: Request, res: Response) => {
-    //     const {email, password} = req.body;
-    //     if (!email ||!password) {
-    //         return res.status(400).json({ error: 'Email and password are required'})
-    //     }
 
-    //     try {
-    //         const { token, message } = await this.authClientsRepository.login(email, password)
-    //         res.json({ token, message })
-    //     } catch (error) {
-    //         this.handleError(error, res)
-    //     }
-    // }
+    UpdateLastNameClientDto = async (req: Request, res: Response) => {
+        const [error, updateLastNameClientDto] = UpdateLastNameClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authClientsRepository.UpdateLastNameClientDto(updateLastNameClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdateEmailClientDto = async (req: Request, res: Response) => {
+        const [error, updateEmailClientDto] = UpdateEmailClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authClientsRepository.UpdateEmailClientDto(updateEmailClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdatePhoneClientDto = async (req: Request, res: Response) => {
+        const [error, updatePhoneClientDto] = UpdatePhoneClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authClientsRepository.UpdatePhoneClientDto(updatePhoneClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+
+    UpdateAddressClientDto = async (req: Request, res: Response) => {
+        const [error, updateAddressClientDto] = UpdateAddressClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authClientsRepository.UpdateAddressClientDto(updateAddressClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdateStateClientDto = async (req: Request, res: Response) => {
+        const [error, updateStateClientDto] = UpdateStateClientDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authClientsRepository.UpdateStateClientDto(updateStateClientDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
 
     updateClientImg = async (req: Request, res: Response) => {
         console.log('Received request to update client img');

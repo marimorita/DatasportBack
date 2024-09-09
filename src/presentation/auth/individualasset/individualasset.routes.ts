@@ -17,8 +17,10 @@ export class AuthIndividualAssetsRoutes {
         // router.post('/login', controller.registerProducts);
         router.post('/register'/* , authenticateToken, authorizeRoles(['admin', 'employee']) */, controller.registerIndividualAssets)
         router.get('/individualassets/:id', controller.getAllIndividualAssetsById)
-
-
+        router.patch('/individualassets/update/name', controller.updateIndividualAssetsName)
+        router.patch('/individualassets/update/description', controller.updateIndividualAssetsDescription)
+        router.patch('/individualassets/update/img', controller.updateIndividualAssetsImg)
+        
         return router;
     }
 }

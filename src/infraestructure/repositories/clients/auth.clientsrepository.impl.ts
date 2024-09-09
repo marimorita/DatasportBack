@@ -1,6 +1,6 @@
 
 import { ClientsEntity } from "../../../data";
-import { AuthClientsDataSource, AuthClientsRepository, RegisterClientDto } from "../../../domain";
+import { AuthClientsDataSource, AuthClientsRepository, RegisterClientDto, UpdateAddressClientDto, UpdateEmailClientDto, UpdateLastNameClientDto, UpdateNameClientDto, UpdatePhoneClientDto, UpdateStateClientDto } from "../../../domain";
 export class AuthClientsRepositoryImpl implements AuthClientsRepository {
 
     constructor(
@@ -27,8 +27,26 @@ export class AuthClientsRepositoryImpl implements AuthClientsRepository {
         return this.authClientsDataSource.updateClient(id, updatedData);
     }
 
-    updateClientStatus(id: number, state: string): Promise<ClientsEntity | null> {
-        return this.authClientsDataSource.updateClientStatus(id, state);
+    UpdateNameClientDto(updateNameClientDto:UpdateNameClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdateNameClientDto(updateNameClientDto);
+    }
+    UpdateLastNameClientDto(updateLastNameClientDto:UpdateLastNameClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdateLastNameClientDto(updateLastNameClientDto);
+    }
+
+    UpdateEmailClientDto(updateEmailClientDto:UpdateEmailClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdateEmailClientDto(updateEmailClientDto);
+    }
+
+    UpdatePhoneClientDto(updatePhoneClientDto:UpdatePhoneClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdatePhoneClientDto(updatePhoneClientDto);
+    }
+    UpdateAddressClientDto(updateAddressClientDto:UpdateAddressClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdateAddressClientDto(updateAddressClientDto);
+    }
+
+    UpdateStateClientDto(updateStateClientDto:UpdateStateClientDto): Promise<ClientsEntity | null> {
+        return this.authClientsDataSource.UpdateStateClientDto(updateStateClientDto);
     }
 
     updateClientImg(id: number, img: string): Promise<ClientsEntity | null> {

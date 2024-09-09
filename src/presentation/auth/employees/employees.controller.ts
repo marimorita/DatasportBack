@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RegisterEmployeesDto, LoginEmployeesDto, AuthEmployeesRepository, CustomError } from "../../../domain";
+import { RegisterEmployeesDto, LoginEmployeesDto, AuthEmployeesRepository, CustomError, UpdateAddressEmployeesDto, UpdateEmailEmployeesDto, UpdateLastNameEmployeesDto, UpdateNameEmployeesDto, UpdatePhoneEmployeesDto, UpdateStateEmployeesDto } from "../../../domain";
 import jwt from 'jsonwebtoken';
 import { envs } from "../../../config";
 import crypto from 'crypto';
@@ -104,6 +104,80 @@ export class AuthEmployeesController {
         } catch (error) {
             console.log(error);
 
+            this.handleError(error, res);
+        }
+    }
+
+    UpdateNameEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updateNameEmployeesDto] = UpdateNameEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdateNameEmployeesDto(updateNameEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+
+    UpdateLastNameEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updateLastNameEmployeesDto] = UpdateLastNameEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdateLastNameEmployeesDto(updateLastNameEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdateEmailEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updateEmailEmployeesDto] = UpdateEmailEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdateEmailEmployeesDto(updateEmailEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdatePhoneEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updatePhoneEmployeesDto] = UpdatePhoneEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdatePhoneEmployeesDto(updatePhoneEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+
+    UpdateAddressEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updateAddressEmployeesDto] = UpdateAddressEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdateAddressEmployeesDto(updateAddressEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    UpdateStateEmployeesDto = async (req: Request, res: Response) => {
+        const [error, updateStateEmployeesDto] = UpdateStateEmployeesDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authEmployeesRepository.UpdateStateEmployeesDto(updateStateEmployeesDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
             this.handleError(error, res);
         }
     }

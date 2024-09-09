@@ -16,6 +16,8 @@ export class AuthProductsRoutes {
 
         // router.post('/login', controller.registerProducts);
         router.post('/register', authenticateToken, authorizeRoles(['admin', 'employee']), controller.registerProducts)
+        router.get('/products', controller.getAllProducts)
+        router.get('/products/:id', controller.getProductsById)
 
         return router;
     }

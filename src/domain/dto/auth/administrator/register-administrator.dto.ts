@@ -100,24 +100,24 @@ export class UpdateNameAdministratorDto {
     }
 }
 
-export class UpdateIdAdministratorDto {
-    private constructor(
-        public id: number,
-    ) { }
+// export class UpdateIdAdministratorDto {
+//     private constructor(
+//         public id: number,
+//     ) { }
 
-    static create(object: { [key: string]: any; }): [string?, UpdateIdAdministratorDto?] {
+//     static create(object: { [key: string]: any; }): [string?, UpdateIdAdministratorDto?] {
 
-        const { id } = object;
+//         const { id } = object;
 
-        if (!Validators.number.test(id)) return ['Documento no valido'];
+//         if (!Validators.number.test(id)) return ['Documento no valido'];
 
 
-        return [
-            undefined,
-            new UpdateIdAdministratorDto(id)
-        ];
-    }
-}
+//         return [
+//             undefined,
+//             new UpdateIdAdministratorDto(id)
+//         ];
+//     }
+// }
 
 export class UpdatePhoneAdministratorDto {
     private constructor(

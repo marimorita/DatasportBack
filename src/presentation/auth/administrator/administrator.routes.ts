@@ -17,7 +17,7 @@ export class AuthAdministratorRoutes {
         router.post('/register', controller.registerAdministrator)
         router.get('/administrator/:token', controller.getAdministratorById);
         router.patch('/administrator/update/name', controller.updateAdministratorName);
-        router.patch('/administrator/update/id', controller.updateAdministratorId);
+        // router.patch('/administrator/update/id', controller.updateAdministratorId);
         router.patch('/administrator/update/phone', controller.updateAdministratorPhone);
         router.patch('/administrator/update/email', controller.updateAdministratorEmail);
         router.patch('/administrator/:id/img', controller.updateAdministratorImg);

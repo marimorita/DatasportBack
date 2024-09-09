@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import {
-    RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateIdAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto
+    RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto
     , AuthAdministratorRepository, CustomError
 } from "../../../domain";
 import { AdministratorEntity } from "../../../data";
@@ -104,17 +104,17 @@ export class AuthAdministratorController {
         }
     }
 
-    updateAdministratorId = async (req: Request, res: Response) => {
-        const [error, updateIdAdministratorDto] = UpdateIdAdministratorDto.create(req.body);
-        if (error) return res.status(400).json({ error });
+    // updateAdministratorId = async (req: Request, res: Response) => {
+    //     const [error, updateIdAdministratorDto] = UpdateIdAdministratorDto.create(req.body);
+    //     if (error) return res.status(400).json({ error });
 
-        try {
-            await this.authAdministratorRepository.updateAdministratorId(updateIdAdministratorDto!)
-            res.status(201).json({ message: 'Actualizacion exitosa!' });
-        } catch (error) {
-            this.handleError(error, res);
-        }
-    }
+    //     try {
+    //         await this.authAdministratorRepository.updateAdministratorId(updateIdAdministratorDto!)
+    //         res.status(201).json({ message: 'Actualizacion exitosa!' });
+    //     } catch (error) {
+    //         this.handleError(error, res);
+    //     }
+    // }
 
     updateAdministratorPhone = async (req: Request, res: Response) => {
         const [error, updatePhoneAdministratorDto] = UpdatePhoneAdministratorDto.create(req.body);

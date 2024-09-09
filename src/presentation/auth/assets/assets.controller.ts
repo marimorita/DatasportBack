@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RegisterAssetsDto, AuthAssetsRepository, CustomError } from "../../../domain";
+import { RegisterAssetsDto, UpdateStockAssetsDto, UpdateNameAssetsDto, UpdateDescriptionAssetsDto, UpdateImgAssetsDto, AuthAssetsRepository, CustomError } from "../../../domain";
 import { AssetsEntity } from "../../../data";
 export class AuthAssetsController {
 
@@ -60,17 +60,51 @@ export class AuthAssetsController {
         }
     }
 
-    // loginEstablishment = async (req: Request, res: Response) => {
-    //     const {email, password} = req.body;
-    //     if (!email ||!password) {
-    //         return res.status(400).json({ error: 'Email and password are required'})
-    //     }
+    updateAssetsStock = async (req: Request, res: Response) => {
+        const [error, updateStockAssetsDto] = UpdateStockAssetsDto.create(req.body);
+        if (error) return res.status(400).json({ error });
 
-    //     try {
-    //         const { token, message } = await this.authEstablishmentRepository.login(email, password)
-    //         res.json({ token, message })
-    //     } catch (error) {
-    //         this.handleError(error, res)
-    //     }
-    // }
+        try {
+            await this.authAssetsRepository.updateAssetsStock(updateStockAssetsDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    updateAssetsName = async (req: Request, res: Response) => {
+        const [error, updateNameAssetsDto] = UpdateNameAssetsDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authAssetsRepository.updateAssetsName(updateNameAssetsDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    updateAssetsDescription = async (req: Request, res: Response) => {
+        const [error, updateDescriptionAssetsDto] = UpdateDescriptionAssetsDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authAssetsRepository.updateAssetsDescription(updateDescriptionAssetsDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
+
+    updateAssetsImg = async (req: Request, res: Response) => {
+        const [error, updateImgAssetsDto] = UpdateImgAssetsDto.create(req.body);
+        if (error) return res.status(400).json({ error });
+
+        try {
+            await this.authAssetsRepository.updateAssetsImg(updateImgAssetsDto!)
+            res.status(201).json({ message: 'Actualizacion exitosa!' });
+        } catch (error) {
+            this.handleError(error, res);
+        }
+    }
 }

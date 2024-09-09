@@ -1,5 +1,5 @@
 import { AdministratorEntity } from "../../../data";
-import { AuthAdministratorDataSource, AuthAdministratorRepository, RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateIdAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto } from "../../../domain";
+import { AuthAdministratorDataSource, AuthAdministratorRepository, RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto } from "../../../domain";
 export class AuthAdministratorRepositoryImpl implements AuthAdministratorRepository {
 
     constructor(
@@ -22,9 +22,9 @@ export class AuthAdministratorRepositoryImpl implements AuthAdministratorReposit
         return this.authAdministratorDataSource.updateAdministratorName(updateNameAdministratorDto);
     }
 
-    updateAdministratorId(updateIdAdministratorDto:UpdateIdAdministratorDto): Promise<AdministratorEntity | null> {
-        return this.authAdministratorDataSource.updateAdministratorId(updateIdAdministratorDto);
-    }
+    // updateAdministratorId(updateIdAdministratorDto:UpdateIdAdministratorDto): Promise<AdministratorEntity | null> {
+    //     return this.authAdministratorDataSource.updateAdministratorId(updateIdAdministratorDto);
+    // }
 
     updateAdministratorPhone(updatePhoneAdministratorDto:UpdatePhoneAdministratorDto): Promise<AdministratorEntity | null> {
         return this.authAdministratorDataSource.updateAdministratorPhone(updatePhoneAdministratorDto);

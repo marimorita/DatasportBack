@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../data/mysql/ormconfig";
 import { BcryptAdapter } from "../../../config";
-import { AuthClientsDataSource, CustomError, RegisterClientDto} from "../../../domain";
+import { AuthClientsDataSource, CustomError, RegisterClientDto, UpdateAddressClientDto, UpdateEmailClientDto, UpdateLastNameClientDto, UpdateNameClientDto, UpdatePhoneClientDto, UpdateStateClientDto} from "../../../domain";
 import { ClientMapper } from "../../mappers/clients/client.mappers";
 import { ClientsEntity } from "../../../data";
 import { envs } from '../../../config';
@@ -85,46 +85,107 @@ export class AuthClientsDataSourceImpl implements AuthClientsDataSource {
         }
     }
 
-    async updateClientStatus(id: number, state: string): Promise<ClientsEntity | null> {
+    async UpdateNameClientDto(updateNameClientDto: UpdateNameClientDto): Promise<ClientsEntity | null> {
+        const { id, name } = updateNameClientDto;
+
         try {
             const client = await this.clientRepository.findOneBy({ id });
             if (!client) {
                 return null;
             }
-    
-            await this.clientRepository.update(id, { state });
+
+            await this.clientRepository.update({id}, { name });
             return client;
         } catch (error) {
-            console.error('Error updating client status:', error);
-            throw new Error('Error updating client status');
+            console.error('Error updating client name:', error);
+            throw new Error('Error updating client name');
         }
     }
 
-    // async   login(email:string, password: string): Promise<{ token: string, message: string }> {
-    //     try {
-    //         const client = await this.clientRepository.findOne({ where: { email }});
-    //         if (!client) throw CustomError.badRequest("Invalid crendetials");
+    async UpdateLastNameClientDto(updateLastNameClientDto: UpdateLastNameClientDto): Promise<ClientsEntity | null> {
+        const { id, lastName } = updateLastNameClientDto;
 
-    //         if (!client.password) throw CustomError.unauthorized("Invalid credentials");
-            
-    //         const isPasswordValid = BcryptAdapter.compare(password, client.password);
-    //         if (!isPasswordValid) throw CustomError.unauthorized("Invalid crendetials");
+        try {
+            const client = await this.clientRepository.findOneBy({ id });
+            if (!client) {
+                return null;
+            }
 
-    //         const token = jwt.sign({ id: client.id, email: client.email}, envs.JWT_SECRET,{
-    //             expiresIn: '1h',
-    //         });
+            await this.clientRepository.update({id}, { lastName });
+            return client;
+        } catch (error) {
+            console.error('Error updating client phone:', error);
+            throw new Error('Error updating client phone');
+        }
+    }
 
-    //         return {
-    //             token,
-    //             message: "Login successful"
-    //         };
-    //     } catch (error) {
-    //         if (error instanceof CustomError) {
-    //             throw error;
-    //         }
-    //         throw CustomError.internalServer();
-    //     }
-    // }
+    async UpdateEmailClientDto(updateEmailClientDto: UpdateEmailClientDto): Promise<ClientsEntity | null> {
+        const { id, email } = updateEmailClientDto;
+
+        try {
+            const client = await this.clientRepository.findOneBy({ id });
+            if (!client) {
+                return null;
+            }
+
+            await this.clientRepository.update({id}, { email });
+            return client;
+        } catch (error) {
+            console.error('Error updating client email:', error);
+            throw new Error('Error updating client email');
+        }
+    }
+
+    async UpdatePhoneClientDto(updatePhoneClientDto: UpdatePhoneClientDto): Promise<ClientsEntity | null> {
+        const { id, phone } = updatePhoneClientDto;
+
+        try {
+            const client = await this.clientRepository.findOneBy({ id });
+            if (!client) {
+                return null;
+            }
+
+            await this.clientRepository.update({id}, { phone });
+            return client;
+        } catch (error) {
+            console.error('Error updating client phone:', error);
+            throw new Error('Error updating client phone');
+        }
+    }
+
+    async UpdateAddressClientDto(updateAddressClientDto: UpdateAddressClientDto): Promise<ClientsEntity | null> {
+        const { id, address } = updateAddressClientDto;
+
+        try {
+            const client = await this.clientRepository.findOneBy({ id });
+            if (!client) {
+                return null;
+            }
+
+            await this.clientRepository.update({id}, { address });
+            return client;
+        } catch (error) {
+            console.error('Error updating client address:', error);
+            throw new Error('Error updating client address');
+        }
+    }
+
+    async UpdateStateClientDto(updateStateClientDto: UpdateStateClientDto): Promise<ClientsEntity | null> {
+        const { id, state } = updateStateClientDto;
+
+        try {
+            const client = await this.clientRepository.findOneBy({ id });
+            if (!client) {
+                return null;
+            }
+
+            await this.clientRepository.update({id}, { state });
+            return client;
+        } catch (error) {
+            console.error('Error updating client state:', error);
+            throw new Error('Error updating client state');
+        }
+    }
 
     async updateClientImg(id: number, img: string): Promise<ClientsEntity | null> {
         try {

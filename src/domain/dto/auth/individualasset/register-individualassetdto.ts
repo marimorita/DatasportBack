@@ -47,3 +47,54 @@ export class RegisterIndividualAssetsDto {
             ];
         }
 }
+
+export class UpdateNameIndividualAssetsDto {
+    private constructor(
+        public id: number,
+        public name: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateNameIndividualAssetsDto?] {
+
+        const { id, name } = object;
+
+        return [
+            undefined,
+            new UpdateNameIndividualAssetsDto(id, name)
+        ];
+    }
+}
+
+export class UpdateDescriptionIndividualAssetsDto {
+    private constructor(
+        public id: number,
+        public description: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateDescriptionIndividualAssetsDto?] {
+
+        const { id, description } = object;
+
+        return [
+            undefined,
+            new UpdateDescriptionIndividualAssetsDto(id, description)
+        ];
+    }
+}
+
+export class UpdateImgIndividualAssetsDto {
+    private constructor(
+        public id: number,
+        public img: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateImgIndividualAssetsDto?] {
+
+        const { id, img } = object;
+
+        return [
+            undefined,
+            new UpdateImgIndividualAssetsDto(id, img)
+        ];
+    }
+}

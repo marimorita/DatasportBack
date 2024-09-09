@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../data/mysql/ormconfig";
 import { BcryptAdapter } from "../../../config";
-import { AuthAdministratorDataSource, CustomError, RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateIdAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto } from "../../../domain";
+import { AuthAdministratorDataSource, CustomError, RegisterAdministratorDto, LoginAdministratorDto, UpdateEmailAdministratorDto, UpdateNameAdministratorDto, UpdatePhoneAdministratorDto } from "../../../domain";
 import { AdministratorMapper } from "../../mappers/administrator/administrator.mappers";
 import { AdministratorEntity } from "../../../data";
 
@@ -106,22 +106,22 @@ export class AuthAdministratorDataSourceImpl implements AuthAdministratorDataSou
         }
     }
 
-    async updateAdministratorId(updateIdAdministratorDto: UpdateIdAdministratorDto): Promise<AdministratorEntity | null> {
-        const { id } = updateIdAdministratorDto;
+    // async updateAdministratorId(updateIdAdministratorDto: UpdateIdAdministratorDto): Promise<AdministratorEntity | null> {
+    //     const { id } = updateIdAdministratorDto;
 
-        try {
-            const admin = await this.administratorRepository.findOneBy({ id });
-            if (!admin) {
-                return null;
-            }
+    //     try {
+    //         const admin = await this.administratorRepository.findOneBy({ id });
+    //         if (!admin) {
+    //             return null;
+    //         }
 
-            await this.administratorRepository.update({id}, { id });
-            return admin;
-        } catch (error) {
-            console.error('Error updating admin id:', error);
-            throw new Error('Error updating admin id');
-        }
-    }
+    //         await this.administratorRepository.update({id}, { id });
+    //         return admin;
+    //     } catch (error) {
+    //         console.error('Error updating admin id:', error);
+    //         throw new Error('Error updating admin id');
+    //     }
+    // }
 
     async updateAdministratorPhone(updatePhoneAdministratorDto: UpdatePhoneAdministratorDto): Promise<AdministratorEntity | null> {
         const { id, phone } = updatePhoneAdministratorDto;

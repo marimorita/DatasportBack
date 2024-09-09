@@ -82,3 +82,134 @@ export class LoginEmployeesDto {
             ];
         }
 }
+
+export class UpdateNameEmployeesDto {
+    private constructor(
+        public id: number,
+        public name: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateNameEmployeesDto?] {
+
+        const { id, name } = object;
+
+        if (!Validators.text.test(name)) return ['Nombre no valido'];
+
+
+        return [
+            undefined,
+            new UpdateNameEmployeesDto(id, name)
+        ];
+    }
+}
+export class UpdateLastNameEmployeesDto {
+    private constructor(
+        public id: number,
+        public lastName: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateLastNameEmployeesDto?] {
+
+        const { id, lastName } = object;
+
+        if (!Validators.text.test(lastName)) return ['Apellido no valido'];
+
+
+        return [
+            undefined,
+            new UpdateLastNameEmployeesDto(id, lastName)
+        ];
+    }
+}
+
+export class UpdateEmailEmployeesDto {
+    private constructor(
+        public id: number,
+        public email: string,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateEmailEmployeesDto?] {
+
+        const { id, email } = object;
+
+        if (!Validators.email.test(email)) return ['Correo no valido'];
+
+
+        return [
+            undefined,
+            new UpdateEmailEmployeesDto(id, email)
+        ];
+    }
+}
+export class UpdatePhoneEmployeesDto {
+    private constructor(
+        public id: number,
+        public phone: number,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdatePhoneEmployeesDto?] {
+
+        const { id, phone } = object;
+
+        if (phone.length < 10) return ['Numero telefonico muy corto'];
+        if (phone.length > 12) return ['Numero telefonico muy largo'];
+        if (!Validators.number.test(phone)) return ['Numero no valido'];
+
+
+        return [
+            undefined,
+            new UpdatePhoneEmployeesDto(id, phone)
+        ];
+    }
+}
+
+export class UpdateAddressEmployeesDto {
+    private constructor(
+        public id: number,
+        public address: number,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateAddressEmployeesDto?] {
+
+        const { id, address } = object;
+
+        return [
+            undefined,
+            new UpdateAddressEmployeesDto(id, address)
+        ];
+    }
+}
+
+export class UpdateStateEmployeesDto {
+    private constructor(
+        public id: number,
+        public state: number,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateStateEmployeesDto?] {
+
+        const { id, state } = object;
+
+        return [
+            undefined,
+            new UpdateStateEmployeesDto(id, state)
+        ];
+    }
+}
+
+export class UpdateImgEmployeesDto {
+    private constructor(
+        public id: number,
+        public img: number,
+    ) { }
+
+    static create(object: { [key: string]: any; }): [string?, UpdateImgEmployeesDto?] {
+
+        const { id, img } = object;
+
+        return [
+            undefined,
+            new UpdateImgEmployeesDto(id, img)
+        ];
+    }
+}

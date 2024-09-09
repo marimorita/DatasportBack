@@ -19,7 +19,12 @@ export class AuthClientsRoutes {
         router.get('/clients', controller.getAllClients)
         router.get('/clients/:id', controller.getClientById)
         router.put('/clients/:id', authenticateToken, authorizeRoles(['admin', 'employee']), controller.updateAllClientData)
-        router.patch('/clients/:id/state', authenticateToken, authorizeRoles(['admin', 'employee']), controller.updateClientStatus);
+        router.patch('/clients/update/name', controller.UpdateNameClientDto);
+        router.patch('/clients/update/lastname', controller.UpdateLastNameClientDto);
+        router.patch('/clients/update/email', controller.UpdateEmailClientDto);
+        router.patch('/clients/update/phone', controller.UpdatePhoneClientDto);
+        router.patch('/clients/update/address', controller.UpdateAddressClientDto);
+        router.patch('/clients/update/state', controller.UpdateStateClientDto);
         router.patch('/clients/:id/img', authenticateToken, authorizeRoles(['admin', 'employee']), controller.updateClientImg);
 
 

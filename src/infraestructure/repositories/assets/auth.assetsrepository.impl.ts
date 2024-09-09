@@ -1,5 +1,5 @@
 import { AssetsEntity } from "../../../data";
-import { AuthAssetsDataSource, AuthAssetsRepository, RegisterAssetsDto } from "../../../domain";
+import { AuthAssetsDataSource, AuthAssetsRepository, RegisterAssetsDto, UpdateStockAssetsDto, UpdateNameAssetsDto, UpdateDescriptionAssetsDto, UpdateImgAssetsDto } from "../../../domain";
 export class AuthAssetsRepositoryImpl implements AuthAssetsRepository {
 
     constructor(
@@ -18,8 +18,20 @@ export class AuthAssetsRepositoryImpl implements AuthAssetsRepository {
         return this.authAssetsDataSource.getAssetsById(id);
     }
 
-    // login(email: string, password: string): Promise<{ token: string, message: string }> {
-    //     return this.authEstablishmentDataSource.login(email, password);
-    // }
+    updateAssetsStock(updateStockAssetsDto:UpdateStockAssetsDto): Promise<AssetsEntity | null> {
+        return this.authAssetsDataSource.updateAssetsStock(updateStockAssetsDto);
+    }
+
+    updateAssetsName(updateNameAssetsDto:UpdateNameAssetsDto): Promise<AssetsEntity | null> {
+        return this.authAssetsDataSource.updateAssetsName(updateNameAssetsDto);
+    }
+
+    updateAssetsDescription(updateDescriptionAssetsDto:UpdateDescriptionAssetsDto): Promise<AssetsEntity | null> {
+        return this.authAssetsDataSource.updateAssetsDescription(updateDescriptionAssetsDto);
+    }
+
+    updateAssetsImg(updateImgAssetsDto:UpdateImgAssetsDto): Promise<AssetsEntity | null> {
+        return this.authAssetsDataSource.updateAssetsImg(updateImgAssetsDto);
+    }
 
 }

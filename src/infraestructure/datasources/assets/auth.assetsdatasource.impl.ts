@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../data/mysql/ormconfig";
-import { AuthAssetsDataSource, CustomError, RegisterAssetsDto} from "../../../domain";
+import { AuthAssetsDataSource, CustomError, RegisterAssetsDto, UpdateStockAssetsDto, UpdateNameAssetsDto, UpdateDescriptionAssetsDto, UpdateImgAssetsDto} from "../../../domain";
 import { AssetsMapper } from "../../mappers/assets/assets.mappers";
 import { AssetsEntity } from "../../../data";
 // import { envs } from '../../../config';
@@ -59,6 +59,75 @@ export class AuthAssetsDataSourceImpl implements AuthAssetsDataSource {
             throw CustomError.internalServer();
         }
     }
+
+    async updateAssetsStock(updateStockAssetsDto: UpdateStockAssetsDto): Promise<AssetsEntity | null> {
+        const { id, stock } = updateStockAssetsDto;
+
+        try {
+            const admin = await this.assetsRepository.findOneBy({ id });
+            if (!admin) {
+                return null;
+            }
+
+            await this.assetsRepository.update({id}, { stock });
+            return admin;
+        } catch (error) {
+            console.error('Error updating assets stock:', error);
+            throw new Error('Error updating assets stock');
+        }
+    }
+
+    async updateAssetsName(updateNameAssetsDto: UpdateNameAssetsDto): Promise<AssetsEntity | null> {
+        const { id, name } = updateNameAssetsDto;
+
+        try {
+            const assets = await this.assetsRepository.findOneBy({ id });
+            if (!assets) {
+                return null;
+            }
+
+            await this.assetsRepository.update({id}, { name });
+            return assets;
+        } catch (error) {
+            console.error('Error updating assets stock:', error);
+            throw new Error('Error updating assets stock');
+        }
+    }
+
+    async updateAssetsDescription(updateDescriptionAssetsDto: UpdateDescriptionAssetsDto): Promise<AssetsEntity | null> {
+        const { id, description } = updateDescriptionAssetsDto;
+
+        try {
+            const assets = await this.assetsRepository.findOneBy({ id });
+            if (!assets) {
+                return null;
+            }
+
+            await this.assetsRepository.update({id}, { description });
+            return assets;
+        } catch (error) {
+            console.error('Error updating assets stock:', error);
+            throw new Error('Error updating assets stock');
+        }
+    }
+
+    async updateAssetsImg(updateImgAssetsDto: UpdateImgAssetsDto): Promise<AssetsEntity | null> {
+        const { id, img } = updateImgAssetsDto;
+
+        try {
+            const assets = await this.assetsRepository.findOneBy({ id });
+            if (!assets) {
+                return null;
+            }
+
+            await this.assetsRepository.update({id}, { img });
+            return assets;
+        } catch (error) {
+            console.error('Error updating assets stock:', error);
+            throw new Error('Error updating assets stock');
+        }
+    }
+
 
 }
 

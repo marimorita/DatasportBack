@@ -16,6 +16,10 @@ export class AuthAssetsRoutes {
         router.post('/register'/* , authenticateToken, authorizeRoles(['admin', 'employee']) */, controller.registerAssets)
         router.get('/assets', controller.getAllAssets)
         router.get('/assets/:id', controller.getAssetsById)
+        router.patch('/assets/update/stock', controller.updateAssetsStock)
+        router.patch('/assets/update/name', controller.updateAssetsName)
+        router.patch('/assets/update/description', controller.updateAssetsDescription)
+        router.patch('/assets/update/img', controller.updateAssetsImg)
 
 
         return router;

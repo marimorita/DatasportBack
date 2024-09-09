@@ -20,7 +20,6 @@ npm install form-data
 npm install handlebars
 npm install jsonwebtoken
 npm install mailersend
-npm install mailgun.js
 npm install messagebird
 npm install minimatch
 npm install mongoose

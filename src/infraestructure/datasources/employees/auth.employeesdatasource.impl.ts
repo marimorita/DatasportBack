@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../data/mysql/ormconfig";
 import { BcryptAdapter } from "../../../config";
-import { AuthEmployeesDataSource, CustomError, RegisterEmployeesDto, LoginEmployeesDto} from "../../../domain";
+import { AuthEmployeesDataSource, CustomError, RegisterEmployeesDto, LoginEmployeesDto, UpdateAddressEmployeesDto, UpdateEmailEmployeesDto, UpdateLastNameEmployeesDto, UpdateNameEmployeesDto, UpdatePhoneEmployeesDto, UpdateStateEmployeesDto} from "../../../domain";
 import { EmployeesMapper } from "../../mappers/employees/employees.mappers";
 import { EmployeesEntity } from "../../../data";
 import { envs } from '../../../config';
@@ -87,7 +87,7 @@ export class AuthEmployeesDataSourceImpl implements AuthEmployeesDataSource {
         try {
             return await this.employeesRepository.findOne({ where: { id } });
         } catch (error) {
-            console.error("Error fetching client by ID:", error);
+            console.error("Error fetching employee by ID:", error);
             throw CustomError.internalServer();
         }
     }
@@ -99,6 +99,107 @@ export class AuthEmployeesDataSourceImpl implements AuthEmployeesDataSource {
         return admin || null;
     }
 
+    async UpdateNameEmployeesDto(updateNameEmployeesDto: UpdateNameEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, name } = updateNameEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { name });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee name:', error);
+            throw new Error('Error updating employee name');
+        }
+    }
+
+    async UpdateLastNameEmployeesDto(updateLastNameEmployeesDto: UpdateLastNameEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, lastName } = updateLastNameEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { lastName });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee phone:', error);
+            throw new Error('Error updating employee phone');
+        }
+    }
+
+    async UpdateEmailEmployeesDto(updateEmailEmployeesDto: UpdateEmailEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, email } = updateEmailEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { email });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee email:', error);
+            throw new Error('Error updating employee email');
+        }
+    }
+
+    async UpdatePhoneEmployeesDto(updatePhoneEmployeesDto: UpdatePhoneEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, phone } = updatePhoneEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { phone });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee phone:', error);
+            throw new Error('Error updating employee phone');
+        }
+    }
+
+    async UpdateAddressEmployeesDto(updateAddressEmployeesDto: UpdateAddressEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, address } = updateAddressEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { address });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee address:', error);
+            throw new Error('Error updating employee address');
+        }
+    }
+
+    async UpdateStateEmployeesDto(updateStateEmployeesDto: UpdateStateEmployeesDto): Promise<EmployeesEntity | null> {
+        const { id, state } = updateStateEmployeesDto;
+
+        try {
+            const employee = await this.employeesRepository.findOneBy({ id });
+            if (!employee) {
+                return null;
+            }
+
+            await this.employeesRepository.update({id}, { state });
+            return employee;
+        } catch (error) {
+            console.error('Error updating employee state:', error);
+            throw new Error('Error updating employee state');
+        }
+    }
     async updateEmployeeImg(id: number, img: string): Promise<EmployeesEntity | null> {
         try {
             const employee = await this.employeesRepository.findOneBy({ id });
