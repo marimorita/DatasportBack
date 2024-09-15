@@ -63,6 +63,16 @@ export class AuthEmployeesController {
         }
     }
 
+    getAllEmployees = async (req: Request, res: Response) => {
+        try {
+            const employee = await this.authEmployeesRepository.getAllEmployees();
+            res.json(employee);
+        } catch (error) {
+            console.log(error);
+            this.handleError(error, res);
+        }
+    }
+
     getEmployeeById = async (req: Request, res: Response) => {
         const { id } = req.params;
 

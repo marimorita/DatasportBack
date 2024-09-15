@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "start": "nodemon --exec ts-node src/app.ts",
-    "dev": "tsnd --respawn --clear src/app.ts"
+    "start": "concurrently \"nodemon --exec ts-node src/app.ts\" \"nodemon src/IAS/chatBot/chat.js\"",
+    "dev": "tsnd --respawn --clear src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.12",
     "@types/nodemailer": "^6.4.15",
+    "concurrently": "^9.0.0",
     "nodemon": "^3.1.4",
     "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "@azure/communication-email": "^1.0.0",
+    "@google/generative-ai": "^0.2.1",
     "@cloudinary/react": "^1.13.0",
     "@cloudinary/url-gen": "^1.20.0",
     "@types/bcryptjs": "^2.4.6",

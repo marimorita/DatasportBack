@@ -4,7 +4,7 @@ import { RegisterEmployeesDto, LoginEmployeesDto, UpdateAddressEmployeesDto, Upd
 export abstract class AuthEmployeesDataSource {
     abstract register(registerEmployeesDto:RegisterEmployeesDto): Promise<{ message: string }>
     abstract login(loginEmployeesDto:LoginEmployeesDto): Promise<{ token: string, role: string | undefined, message: string  }>;
-
+    abstract getAllEmployees(): Promise<EmployeesEntity[]>;
     abstract getEmployeeById(id: number): Promise<EmployeesEntity | null>;
     abstract getEmployeeByEmail(email: string): Promise<EmployeesEntity | null>;
     abstract UpdateNameEmployeesDto(updateNameEmployeesDto: UpdateNameEmployeesDto): Promise<EmployeesEntity | null>

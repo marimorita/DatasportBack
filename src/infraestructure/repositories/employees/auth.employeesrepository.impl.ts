@@ -14,6 +14,10 @@ export class AuthEmployeesRepositoryImpl implements AuthEmployeesRepository {
         return this.authEmployeesDataSource.login(loginEmployeesDto);
     }
 
+    getAllEmployees(): Promise<EmployeesEntity[]> {
+        return this.authEmployeesDataSource.getAllEmployees();
+    }
+
     getEmployeeById(id: number): Promise<EmployeesEntity | null> {
         return this.authEmployeesDataSource.getEmployeeById(id);
     }

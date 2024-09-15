@@ -83,6 +83,14 @@ export class AuthEmployeesDataSourceImpl implements AuthEmployeesDataSource {
         }
     }
 
+    async getAllEmployees(): Promise<EmployeesEntity[]> {
+        try {
+            return await this.employeesRepository.find();
+        } catch (error) {
+            throw CustomError.internalServer();
+        }
+    }
+
     async getEmployeeById(id: number): Promise<EmployeesEntity | null> {
         try {
             return await this.employeesRepository.findOne({ where: { id } });

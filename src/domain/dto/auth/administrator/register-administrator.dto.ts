@@ -32,6 +32,7 @@ export class RegisterAdministratorDto {
         if (!Validators.email.test(email)) return ['Correo no valido'];
 
         if (!phone) return ['Falta el Numero telefonico'];
+        if (!phone.toString().startsWith("3")) return ['El numero tiene que empezar por 3'];
         if (phone.length < 10) return ['Numero telefonico muy corto'];
         if (phone.length > 12) return ['Numero telefonico muy largo'];
         if (!Validators.number.test(phone)) return ['Solo caracteres numericos en numero telefonico'];

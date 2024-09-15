@@ -9,7 +9,6 @@ import { AuthIndividualAssetsRoutes } from "./auth/individualasset/individualass
 import { VerifyCodeRoutes } from "./auth/verifycode/verifycode.routes";
 import { VerifyTokenAndSendCodeCodeRoutes } from "./auth/verifycode/verifyTokenAndSendCode.routes";
 
-
 export class AppRoutes {
     static get routes(): Router {
         const router = Router();
