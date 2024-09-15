@@ -2,9 +2,10 @@
   "name": "api-d.s",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.ts",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "concurrently \"nodemon --exec ts-node src/app.ts\" \"nodemon src/IAS/chatBot/chat.js\"",
+    "build": "tsc",
+    "start": "node dist/app.js",
     "dev": "tsnd --respawn --clear src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -52,12 +53,7 @@
     "mongoose": "^8.6.1",
     "mysql2": "^3.11.0",
     "nodemailer": "^6.9.15",
-    "nodemon": "^3.1.4",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typeorm": "^0.3.20",
-    "typescript": "^5.5.4",
     "wouter": "^3.3.5"
   }
 }

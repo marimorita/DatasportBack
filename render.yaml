@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: api-d.s
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DB_DATABASE
+        fromSecret: DB_DATABASE
+      - key: DB_HOST
+        fromSecret: DB_HOST
+      - key: DB_PASSWORD
+        fromSecret: DB_PASSWORD
+      - key: DB_PORT
+        fromSecret: DB_PORT
+      - key: DB_USERNAME
+        fromSecret: DB_USERNAME
+      - key: JWT_SECRET
+        fromSecret: JWT_SECRET
