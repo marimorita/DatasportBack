@@ -22,7 +22,7 @@ export class RegisterProductsDto {
 
             if ( !description ) return [ 'Falta description' ];
 
-            if ( !state ) return [ 'Falta estado' ];
+            if ( !state ) return [ 'Falta estado ' ];
 
             if ( !stock ) return [ 'Falta Cantidad' ];
             if ( stock < 1 ) return [ 'Tiene que haber una Cantidad mayor a 1' ];
