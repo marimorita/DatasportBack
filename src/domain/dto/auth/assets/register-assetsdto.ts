@@ -14,9 +14,9 @@ export class RegisterAssetsDto {
 
         const { id, name, description, img, stock } = object;
 
-        if (!name) return ['Falta Nombre'];
+        if ( !name ) return [ 'Falta t  itulo' ];
 
-        if (!description) return ['Falta description'];
+        if (!description) return ['Falta descripcion'];
 
         if (!stock) return ['Falta Cantidad'];
         if (stock < 1) return ['Tiene que haber una Cantidad mayor a 1'];

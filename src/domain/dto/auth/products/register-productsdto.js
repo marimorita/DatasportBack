@@ -15,11 +15,9 @@ class RegisterProductsDto {
     static create(object) {
         const { name, description, state, stock, img, price, idCenter } = object;
         if (!name)
-            return ['Falta Nombre'];
-        if (!config_1.Validators.text.test(name))
-            return ['Nombre no valido'];
+            return ['Falta titulo'];
         if (!description)
-            return ['Falta description'];
+            return ['Falta descripcion'];
         if (!state)
             return ['Falta estado'];
         if (!stock)

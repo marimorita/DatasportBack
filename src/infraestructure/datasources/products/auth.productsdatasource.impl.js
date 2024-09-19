@@ -41,7 +41,7 @@ class AuthProductsDataSourceImpl {
                 return products_mappers_1.ProductsMapper.toDomain(newProducts);
             }
             catch (error) {
-                // console.error("Error registering client:", error);
+                console.error("Error registering client:", error);
                 if (error instanceof domain_1.CustomError) {
                     throw error;
                 }

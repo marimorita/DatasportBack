@@ -4,6 +4,7 @@ import { EmployeesEntity } from "../entities/auth/employees/employees.entity";
 import { AdministratorEntity } from "../entities/auth/administrator/administrator.entity";
 import { AssetsEntity } from "../entities/auth/assets/assets.entity";
 import { IndividualAssetsEntity } from "../entities/auth/individualasset/individualasset.entity";
+import { ProductsEntity } from "../entities/auth/products/products.entity"
 import { envs } from "../../config";
 
 
@@ -12,11 +13,11 @@ export const AppDataSource = new DataSource({
     host: envs.DB_HOST,
     port: envs.DB_PORT,
     username: envs.DB_USERNAME,
-    password: "",
+    password: envs.DB_PASSWORD,
     database: envs.DB_DATABASE,
     synchronize: false, // Desactiva en producción
     logging: false,
-    entities: [ClientsEntity,EmployeesEntity,AdministratorEntity,AssetsEntity,IndividualAssetsEntity], // Agrega todas tus entidades aquí
+    entities: [ClientsEntity,EmployeesEntity,AdministratorEntity,AssetsEntity,IndividualAssetsEntity,ProductsEntity], // Agrega todas tus entidades aquí
     migrations: [],
     subscribers: [],
     extra: {

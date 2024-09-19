@@ -13,9 +13,9 @@ class RegisterAssetsDto {
     static create(object) {
         const { id, name, description, img, stock } = object;
         if (!name)
-            return ['Falta Nombre'];
+            return ['Falta t  itulo'];
         if (!description)
-            return ['Falta description'];
+            return ['Falta descripcion'];
         if (!stock)
             return ['Falta Cantidad'];
         if (stock < 1)

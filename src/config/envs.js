@@ -10,7 +10,7 @@ exports.envs = {
     DB_HOST: (0, env_var_1.get)('DB_HOST').required().asString(),
     DB_PORT: (0, env_var_1.get)('DB_PORT').required().asPortNumber(),
     DB_USERNAME: (0, env_var_1.get)('DB_USERNAME').required().asString(),
-    // DB_PASSWORD: get('DB_PASSWORD').required().asString(),
+    DB_PASSWORD: (0, env_var_1.get)('DB_PASSWORD').required().asString(),
     DB_DATABASE: (0, env_var_1.get)('DB_DATABASE').required().asString(),
     JWT_SECRET: (0, env_var_1.get)('JWT_SECRET').required().asString(),
     // GMAIL_USER: get('GMAIL_USER').required().asString(),

@@ -37,7 +37,7 @@ export class AuthProductsDataSourceImpl implements AuthProductsDataSource {
             return ProductsMapper.toDomain(newProducts);
             
         } catch (error) {
-            // console.error("Error registering client:", error);
+            console.error("Error registering client:", error);
             if (error instanceof CustomError) {
                 throw error;
             }

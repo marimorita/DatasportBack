@@ -29,6 +29,7 @@ class AuthProductsController {
                 res.json(products);
             }
             catch (error) {
+                console.log(error);
                 this.handleError(error, res);
             }
         });

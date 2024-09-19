@@ -24,6 +24,7 @@ export class AuthProductsController {
             const products: ProductsEntity = await this.authProductsRepository.register(registerProductsDto!)
             res.json(products)
         } catch (error) {
+            console.log(error);
             this.handleError(error, res);
         }
     }

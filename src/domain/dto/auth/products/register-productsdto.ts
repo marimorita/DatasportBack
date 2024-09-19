@@ -16,11 +16,9 @@ export class RegisterProductsDto {
 
             const {name, description, state, stock, img, price, idCenter } = object;
             
-            if ( !name ) return [ 'Falta Nombre' ];
-            if ( !Validators.text.test( name ) ) return [ 'Nombre no valido'];
+            if ( !name ) return [ 'Falta titulo' ];
 
-
-            if ( !description ) return [ 'Falta description' ];
+            if ( !description ) return [ 'Falta descripcion' ];
 
             if ( !state ) return [ 'Falta estado' ];
 
